@@ -25,22 +25,62 @@ useEffect(() => {
 
     };
 
+
+    fetch(`http://localhost:5000/goals/${goalItem.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ savedAmount: updatedGoal.savedAmount }),
+    })
+      .then((res) => res.json())
+      .then((updated) => {
+        setGoals((prevGoals) =>
+          prevGoals.map((g) => (g.id === updated.id ? updated : g))
+        );
+        setDepositedAmount("");
+        alert("Deposit added successfully!");
+      });
+
   }
   
 
-
-
   return (
     <div>
-      <h2>Add a New Goal</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
-        <input name="targetAmount" type="number" placeholder="Target" value={formData.targetAmount} onChange={handleChange} />
-        <input name="savedAmount" type="number" placeholder="Saved" value={formData.savedAmount} onChange={handleChange} />
-        <input name="category" placeholder="Category" value={formData.category} onChange={handleChange} />
-        <input name="deadline" type="date" value={formData.deadline} onChange={handleChange} />
-        <button type="submit">Add Goal</button>
+      <h2>Make a Deposit</h2>
+      
+      <form onSubmit={handleDeposit}>
+        <label>
+          Select Goal:
+
+           <select
+            value={selectedGoalId}
+            onChange={(e) => setSelectedGoalId(e.target.value)}
+            required
+          >
+            <option value="">-- Choose a goal --</option>
+            {goals.map((goal) => (
+              <option key={goal.id} value={goal.id}>
+                {goal.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <br />
+        <label>
+          Deposit Amount:
+          <input
+            type="number"
+            value={depositAmount}
+            onChange={(e) => setDepositedAmount(e.target.value)}
+            required
+          />
+
+        </label>
+        <br />
+        <button type="submit">Submit Deposit</button>
+         
+        
       </form>
     </div>
   );

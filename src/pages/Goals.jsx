@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import GoalList from "../components/GoalList";
+import GoalList from "../Components/GoalList";
+
 
 function Goals() {
   const [goals, setGoals] = useState([]);
