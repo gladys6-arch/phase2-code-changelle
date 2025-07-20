@@ -38,10 +38,10 @@ function CreateGoalForm({ onAddGoal }) {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Add a New Goal</h3>
-      <labe>
+      <label>
         Name: <input value={name} onChange={(e) => setName(e.target.value)} required />
 
-      </labe>
+      </label>
       <br/>
       <label>
         Target Amount: <input type="number" value={targetAmount} onChange={(e) => setTargetAmount(e.target.value)} required />
