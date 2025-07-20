@@ -1,3 +1,6 @@
+import React from "react";
+
+
 function GoalItem({goal}){
   const {name, targetAmount, savedAmount, deadline} = goal;
   const percentage = Math.round((savedAmount / targetAmount) * 100);

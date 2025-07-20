@@ -21,18 +21,34 @@ function AddGoal() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (!formData.name || !formData.targetAmount || !formData.deadline) {
+      setError("Please fill in required fields (name, target amount, and deadline).");
+      return;
+    }
+
     fetch("http://localhost:5000/goals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...formData,
+        targetAmount: parseFloat(formData.targetAmount),
+        savedAmount: parseFloat(formData.savedAmount) || 0,
+      }),
     })
-      .then((r) => r.json())
-      .then(() => navigate("/goals")); // redirect to goals page
+      .then((r) => {
+        if (!r.ok) throw new Error("Failed to add goal");
+        return r.json();
+      })
+      .then(() => navigate("/goals"))
+      .catch((err) => setError(err.message));
+
+    
   }
 
   return (
     <div>
       <h2>Add a New Goal</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
         <input name="targetAmount" type="number" placeholder="Target" value={formData.targetAmount} onChange={handleChange} />
