@@ -7,7 +7,7 @@ function GoalList({goals}){
   return (
     <ul>
       {goals.map((goal)=>(
-        <GoalItem key={goal.id} goal={goal}  />
+        <GoalItem key={goal.id} goal={goal} onDelete={onDeleteGoal} />
       ))}
 
     </ul>

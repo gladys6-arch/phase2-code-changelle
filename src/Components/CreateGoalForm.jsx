@@ -45,10 +45,17 @@ function CreateGoalForm({ onAddGoal }) {
       <br/>
       <label>
         Target Amount: <input type="number" value={targetAmount} onChange={(e) => setTargetAmount(e.target.value)} required />
-
       </label>
       <br/>
-      
+      <label>
+        Category: <input value={category} onChange={(e) => setCategory(e.target.value)} />
+      </label>
+      <br />
+      <label>
+        Deadline: <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+      </label>
+      <br />
+      <button type="submit">Add Goal</button>
 
     </form>
   );
