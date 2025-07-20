@@ -1,24 +1,19 @@
-function Progress({ saved, target }) {
-  const percentage = Math.min(100, Math.round((saved / target) * 100));
+function Progress({ savedAmount, targetAmount }) {
+  const percentage = Math.min(((savedAmount / targetAmount) * 100, 100));
+
 
   return (
-    <div style={{ marginTop: "10px" }}>
-      <div style={{
-        backgroundColor: "#ccc",
-        width: "100%",
-        height: "20px",
+    <div style={{ background:"#eee", height: "20px", width:"100%", borderRadius:"10px" }}>
+      <div 
+      style={{
+        height:"100%",
+        width: `${percentage}`,
+        background:"green",
         borderRadius: "10px",
-        overflow: "hidden"
-      }}>
-        <div
-          style={{
-            width: `${percentage}%`,
-            height: "100%",
-            backgroundColor: "#4caf50"
-          }}
-        />
-      </div>
-      <p>{percentage}% saved</p>
+        transition: "width 0.5s ease-in-out",
+      }}
+      />
+      
     </div>
   );
 }

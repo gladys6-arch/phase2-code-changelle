@@ -1,49 +1,20 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-function AddGoal() {
-  const [formData, setFormData] = useState({
-    name: "",
-    targetAmount: "",
-    savedAmount: "",
-    category: "",
-    deadline: "",
-    createdAt: new Date().toISOString().split("T")[0],
-  });
 
-  const navigate = useNavigate();
+function Deposits() {
+  const [goals, setGoals] = useState([]);
+  const [selectedGoalId, setSelectedGoalId] = useState("");
+  const [depositAmount, setDepositedAmount] =useState("");
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  }
+useEffect(() => {
+    fetch("http://localhost:5000/goals")
+      .then((res) => res.json())
+      .then(setGoals)
+      .catch((err) => console.error("Error fetching goals:", err));
+  }, []);
+  
 
-  function handleSubmit(e) {
-    e.preventDefault();
 
-    if (!formData.name || !formData.targetAmount || !formData.deadline) {
-      setError("Please fill in required fields (name, target amount, and deadline).");
-      return;
-    }
-
-    fetch("http://localhost:5000/goals", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...formData,
-        targetAmount: parseFloat(formData.targetAmount),
-        savedAmount: parseFloat(formData.savedAmount) || 0,
-      }),
-    })
-      .then((r) => {
-        if (!r.ok) throw new Error("Failed to add goal");
-        return r.json();
-      })
-      .then(() => navigate("/goals"))
-      .catch((err) => setError(err.message));
-
-    
-  }
 
   return (
     <div>
@@ -61,4 +32,4 @@ function AddGoal() {
   );
 }
 
-export default AddGoal;
+export default Deposits;
