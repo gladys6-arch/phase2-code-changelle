@@ -1,15 +1,6 @@
 {
   "goals": [
     {
-      "id": "2",
-      "name": "Emergency Fund",
-      "targetAmount": 10000,
-      "savedAmount": 7500,
-      "category": "Emergency",
-      "deadline": "2026-06-30",
-      "createdAt": "2023-05-01"
-    },
-    {
       "id": "3",
       "name": "New Laptop",
       "targetAmount": 1500,
@@ -80,6 +71,22 @@
       "category": "Home",
       "deadline": "2025-03-31",
       "createdAt": "2024-05-15"
+    },
+    {
+      "id": "2959",
+      "name": "machine",
+      "targetAmount": 12000,
+      "savedAmount": 0,
+      "category": "",
+      "deadline": "2025-07-31"
+    },
+    {
+      "id": "2959",
+      "name": "machine",
+      "targetAmount": 12000,
+      "savedAmount": 0,
+      "category": "",
+      "deadline": "2025-07-31"
     }
   ]
 }
