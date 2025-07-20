@@ -80,22 +80,6 @@
       "category": "Home",
       "deadline": "2025-03-31",
       "createdAt": "2024-05-15"
-    },
-    {
-      "id": "07b3",
-      "name": "New Car",
-      "targetAmount": 2000000,
-      "savedAmount": 0,
-      "category": "fund",
-      "deadline": "2025-07-25"
-    },
-    {
-      "id": "df69",
-      "name": "Hiking",
-      "targetAmount": 5000,
-      "savedAmount": 0,
-      "category": "",
-      "deadline": "2025-07-20"
     }
   ]
 }

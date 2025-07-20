@@ -1,7 +1,12 @@
+import React from "react";
 
 
-function GoalItem({goal}){
-  const { name, targetAmount, savedAmount, category, deadline } = goal;
+function GoalItem({goal, onDeleteGoal}){
+  const { id, name, targetAmount, savedAmount, category, deadline } = goal;
+
+  const daysLeft = Math.ceil(
+    (new Date(deadline) - new Date()) / (1000 * 60 * 60 * 24)
+  );
 
   return (
     <li style={{border: "1px solid #ccc", padding: "10px"}}>
