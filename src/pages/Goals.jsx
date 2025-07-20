@@ -1,31 +1,21 @@
-import { useState, useEffect } from "react";
-import GoalList from "../Components/GoalList";
-import CreateGoalForm from  "../Components/CreateGoalForm";
+import { useEffect, useState } from "react";
+import GoalList from "../components/GoalList";
 
+function Goals() {
+  const [goals, setGoals] = useState([]);
 
-function Goals(){
-
-  const [goals, setGoals] =useState([]);
-
-  useEffect(() =>{
+  useEffect(() => {
     fetch("http://localhost:5000/goals")
-    .then(res => res.json())
-    .then(data => setGoals(data));
+      .then((r) => r.json())
+      .then(setGoals);
   }, []);
 
-  function handleAddGoal(newGoal){
-    setGoals([...goals, newGoal]);
-  }
-
-  return(
+  return (
     <div>
       <h2>Your Goals</h2>
-      <CreateGoalForm onAddGoal={handleAddGoal}/>
-      <GoalList goals={goals}/>
-
+      <GoalList goals={goals} />
     </div>
-
-  )
+  );
 }
 
 export default Goals;

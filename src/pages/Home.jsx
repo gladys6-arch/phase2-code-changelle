@@ -1,11 +1,7 @@
 
 function Home(){
-  return (
-    <div>
-      <h1>Welcome to the Smart Goal Planner</h1>
-      <p>Track and achieve your savings goals!</p>
-    </div>
-  );
+  return <h1>welcome to smart goal planner</h1>
+  
 }
 
 export default Home;
