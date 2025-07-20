@@ -1,52 +1,55 @@
 import { useState } from "react";
 
 function CreateGoalForm({ onAddGoal }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    targetAmount: "",
-    savedAmount: "",
-    category: "",
-    deadline: "",
-    createdAt: new Date().toISOString().split("T")[0],
-  });
+  const [name, setName] =useState("");
+  const [targetAmount, setTargetAmount] =useState("");
+  const [category, setCategory] =useState("");
+  const [deadline, setDeadline] = useState("");
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  }
+
 
   function handleSubmit(e) {
     e.preventDefault();
+    const newGoal ={
+    name,
+    targetAmount: parseFloat(targetAmount),
+    savedAmount: 0,
+    category,
+    deadline,
+    };
 
     fetch("http://localhost:5000/goals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(newGoal),
     })
       .then((res) => res.json())
-      .then((newGoal) => {
-        onAddGoal(newGoal);
-        // reset form
-        setFormData({
-          name: "",
-          targetAmount: "",
-          savedAmount: "",
-          category: "",
-          deadline: "",
-          createdAt: new Date().toISOString().split("T")[0],
-        });
+      .then((data) => {
+        onAddGoal(data);
+      
+        setName("");
+        setTargetAmount("");
+        setCategory("");
+        setDeadline("");
+        
       });
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <h3>Add a New Goal</h3>
-      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
-      <input name="targetAmount" type="number" placeholder="Target Amount" value={formData.targetAmount} onChange={handleChange} />
-      <input name="savedAmount" type="number" placeholder="Saved Amount" value={formData.savedAmount} onChange={handleChange} />
-      <input name="category" placeholder="Category" value={formData.category} onChange={handleChange} />
-      <input name="deadline" type="date" value={formData.deadline} onChange={handleChange} />
-      <button type="submit">Add Goal</button>
+      <labe>
+        Name: <input value={name} onChange={(e) => setName(e.target.value)} required />
+
+      </labe>
+      <br/>
+      <label>
+        Target Amount: <input type="number" value={targetAmount} onChange={(e) => setTargetAmount(e.target.value)} required />
+
+      </label>
+      <br/>
+      
+
     </form>
   );
 }

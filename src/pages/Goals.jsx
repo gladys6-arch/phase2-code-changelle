@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GoalList from "../Components/GoalList";
+import CreateGoalForm from "../Components/CreateGoalForm";
 
 
 function Goals() {
@@ -11,11 +12,17 @@ function Goals() {
       .then(setGoals)
       .catch((err) => console.error("Error fetching goals:", err));
       }, []);
+
+      function handleAddGoal(newGoal){
+        setGoals([...goals, newGoal])
+
+      }
          
 
   return (
     <div>
       <h2>Your Goals</h2>
+      <CreateGoalForm onAddGoal={handleAddGoal}/>
       <GoalList goals={goals} />
     </div>
   );
