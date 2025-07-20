@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import GoalList from "../Components/GoalList";
-import AddGoalForm from  "../Components/AddGoalForm";
+import CreateGoalForm from  "../Components/CreateGoalForm";
 
 
 function Goals(){
@@ -20,7 +20,7 @@ function Goals(){
   return(
     <div>
       <h2>Your Goals</h2>
-      <AddGoalForm onAddGoal={handleAddGoal}/>
+      <CreateGoalForm onAddGoal={handleAddGoal}/>
       <GoalList goals={goals}/>
 
     </div>
