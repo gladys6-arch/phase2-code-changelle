@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import NavBar from "./Components/Navbar";
 import Home from "./pages/Home";
 import Goals from "./pages/Goals";
+import AddGoal from "./pages/AddGoal"
 
 function App(){
   return (
