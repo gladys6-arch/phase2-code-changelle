@@ -12,6 +12,20 @@ useEffect(() => {
       .then(setGoals)
       .catch((err) => console.error("Error fetching goals:", err));
   }, []);
+
+
+  function handleDeposit(e){
+    e.preventDefault();
+
+    const goalItem =goals.find((goal)=> goal.id === parseInt(selectedGoalId));
+    if(!goalItem) return;
+    
+    const updatedGoal = {
+      ...goalItem, savedAmount:parseFloat(goalItem.savedAmount) + parseFloat(depositAmount),
+
+    };
+
+  }
   
 
 
