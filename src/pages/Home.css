@@ -1,0 +1,24 @@
+/* src/pages/Home.css */
+.home-container {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(to right, #e0f7fa, #e0f2f1);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 1rem;
+}
+
+.home-description {
+  font-size: 1.25rem;
+  color: #004d40;
+  max-width: 600px;
+}

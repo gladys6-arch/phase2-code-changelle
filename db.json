@@ -64,23 +64,6 @@
       "createdAt": "2023-01-01"
     },
     {
-      "id": "10",
-      "name": "Home Renovation",
-      "targetAmount": 7500,
-      "savedAmount": 1000,
-      "category": "Home",
-      "deadline": "2025-03-31",
-      "createdAt": "2024-05-15"
-    },
-    {
-      "id": "2959",
-      "name": "machine",
-      "targetAmount": 12000,
-      "savedAmount": 0,
-      "category": "",
-      "deadline": "2025-07-31"
-    },
-    {
       "id": "2959",
       "name": "machine",
       "targetAmount": 12000,

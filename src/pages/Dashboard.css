@@ -1,0 +1,28 @@
+.dashboard {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.dashboard h1 {
+  color: #2a4365;
+}
+
+.dashboard ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard li {
+  margin: 1rem 0;
+}
+
+.dashboard a {
+  color: #3182ce;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dashboard a:hover {
+  text-decoration: underline;
+}

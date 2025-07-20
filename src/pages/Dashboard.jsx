@@ -1,8 +1,9 @@
- import { Link } from "react-router";
+ import { Link } from "react-router-dom";
+ import './Dashboard.css'
 
 function Dashboard() {
   return (
-    <div>
+    <div className="dashboard">
       <h1>Welcome to Smart Goal Planner</h1>
       <p>Start creating goals to track your financial journey.</p>
       <div style={{marginTop: "2rem"}}>

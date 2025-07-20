@@ -1,10 +1,11 @@
 import React from "react";
+import "./Home.css"
 
 function Home(){
   return(
-    <div>
-     <h1>Smart Goal Planner</h1>
-      <p>This app helps you manage your savings goals and track progress over time.</p> 
+    <div className="home-container">
+     <h1 className="home-title">Smart Goal Planner</h1>
+      <p className="home-description">This app helps you manage your savings goals and track progress over time.</p> 
 
     </div>
 
