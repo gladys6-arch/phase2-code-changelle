@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CreateGoalForm.css";
 
 function CreateGoalForm({ onAddGoal }) {
   const [name, setName] =useState("");
@@ -6,10 +7,12 @@ function CreateGoalForm({ onAddGoal }) {
   const [category, setCategory] =useState("");
   const [deadline, setDeadline] = useState("");
 
+console.log("CreateGoalForm is mounted");
 
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log("Form submitted")
     const newGoal ={
     name,
     targetAmount: parseFloat(targetAmount),
@@ -33,10 +36,13 @@ function CreateGoalForm({ onAddGoal }) {
         setDeadline("");
         
       });
+
+      console.log("Submit button clicked");
+
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="goal-form" onSubmit={handleSubmit}>
       <h3>Add a New Goal</h3>
       <label>
         Name: <input value={name} onChange={(e) => setName(e.target.value)} required />
@@ -55,7 +61,7 @@ function CreateGoalForm({ onAddGoal }) {
         Deadline: <input type="date" value={deadline} onChange={(e) => setDeadline(e.target.value)} />
       </label>
       <br />
-      <button type="submit">Add Goal</button>
+      <button className="add-goal-btn" type="submit">Add Goal</button>
 
     </form>
   );

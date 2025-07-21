@@ -1,0 +1,41 @@
+.goal-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.goal-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.goal-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.goal-amount {
+  margin: 0 1rem;
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}

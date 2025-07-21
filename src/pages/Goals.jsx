@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import GoalList from "../Components/GoalList";
 import CreateGoalForm from "../Components/CreateGoalForm";
+import './Goals.css';
+
 
 
 function Goals() {
   const [goals, setGoals] = useState([]);
-  
+  console.log("Goals component mounted");
+
   useEffect(() => {
     fetch("http://localhost:5000/goals")
       .then(res => res.json())
@@ -37,10 +40,12 @@ function Goals() {
          
     }
   return (
-    <div>
-      <h2>Your Goals</h2>
-      <CreateGoalForm onAddGoal={handleAddGoal}/>
+    <div className="goals-container">
+      <h2 className="goal-title">Your Goals</h2>
+      <div className="goals-content">
+       <CreateGoalForm onAddGoal={(goal) => console.log("New goal:", goal)} />
       <GoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
+      </div>
     </div>
   );
 

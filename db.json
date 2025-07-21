@@ -70,6 +70,14 @@
       "savedAmount": 0,
       "category": "",
       "deadline": "2025-07-31"
+    },
+    {
+      "id": "d7b3",
+      "name": "site seeing",
+      "targetAmount": 5000,
+      "savedAmount": 0,
+      "category": "savings",
+      "deadline": "2025-07-26"
     }
   ]
 }

@@ -9,17 +9,19 @@ import ProgressPage from "./pages/ProgressPage"
 
 function App(){
   return (
-    <Router>
-      <NavBar/>
-      <Routes>
-        <Route path="/" element={<Dashboard/>}/>
-        <Route path="/home" element={<Home/>} />
-        <Route path="/goals" element={<Goals/>} />
-        <Route path="/deposits" element={<Deposits />} />
-        <Route path="/progress" element={<ProgressPage/>} />
-
-      </Routes>
-    </Router>
+  <>
+  <NavBar/>
+   <main>
+   <Routes>
+  <Route path="/" element={<Dashboard />} />
+  <Route path="/home" element={<Home />} />
+  <Route path="/goals" element={<Goals />} />
+  <Route path="/deposits" element={<Deposits />} />
+  <Route path="/progress" element={<ProgressPage />} />
+  <Route path="*" element={<h2>404: Page Not Found</h2>} />
+</Routes>
+</main>
+</>
 
   )
 }

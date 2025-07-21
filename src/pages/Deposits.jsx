@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import "./Deposits.css";
 
 
 function Deposits() {
   const [goals, setGoals] = useState([]);
   const [selectedGoalId, setSelectedGoalId] = useState("");
-  const [Amount, setAmount] =useState("");
+  const [amount, setAmount] =useState("");
 
 useEffect(() => {
     fetch("http://localhost:5000/goals")
@@ -17,13 +18,14 @@ useEffect(() => {
   function handleSubmit(e){
     e.preventDefault();
 
-    const deposit =goals.find((goal)=> goal.id === parseInt(selectedGoalId));
-    if(!deposit || !selectedGoalId) return;
+    const selectedGoal =goals.find((goal)=> goal.id === parseInt(selectedGoalId));
+    if(!selectedGoal || !amount) return;
     
-    const updatedSavedAmount = goal.savedAmount + deposit;
+    const updatedSavedAmount = selectedGoal.savedAmount + parseFloat(amount);
+console.log({ selectedGoal, updatedSavedAmount });
 
 
-    fetch(`http://localhost:5000/goals/${goalItem.id}`, {
+    fetch(`http://localhost:5000/goals/${selectedGoal.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +47,7 @@ useEffect(() => {
   
 
   return (
- <div>
+ <div className="deposit-form">
       <h2>Make a Deposit</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -69,13 +71,13 @@ useEffect(() => {
           <input
             type="number"
             min="1"
-            value={Amount}
+            value={amount}
             onChange={(e) => setAmount(e.target.value)}
             required
           />
         </label>
         <br />
-        <button type="submit">Submit Deposit</button>
+        <button className="submit" type="submit">Submit Deposit</button>
       </form>
     </div>
 
