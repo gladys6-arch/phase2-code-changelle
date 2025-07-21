@@ -88,6 +88,13 @@ npm run dev
 
 ```
 
+## 🌐 Live Demo
+
+You can access and use the Smart Goal Planner here:
+
+🔗 [View Deployed Site](https://your-deployed-link.com)
+
+
 
 ## 🛠 Technologies Used
 

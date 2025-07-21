@@ -29,7 +29,7 @@ function GoalItem({goal, onDeleteGoal}){
       </div>
 
       {isCompleted && (
-        <p className="success">🎉 Goal completed!</p>
+        <p className="success">Goal completed!</p>
       )}
 
       <button className="delete-btn" onClick={() => onDeleteGoal(id)}>Delete</button>
