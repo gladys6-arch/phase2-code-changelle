@@ -90,9 +90,8 @@ npm run dev
 
 ## 🌐 Live Demo
 
-You can access and use the Smart Goal Planner here:
-
-🔗 [View Deployed Site](https://phase2-code-changelle.onrender.com)
+- **Frontend:** [https://your-frontend-url.onrender.com](https://your-frontend-url.onrender.com)
+- **Backend API:** [https://backend-api-zdjz.onrender.com](https://backend-api-zdjz.onrender.com)
 
 
 

@@ -17,7 +17,7 @@ function Goals() {
       }, []);
 
       function handleAddGoal(newGoal){
-        fetch("http://localhost:5000/goals", {
+        fetch("https://backend-api-zdjz.onrender.com/goals", {
           method: "POST",
           headers:{"Content-Type": "application/json"},
           body: JSON.stringify(newGoal)
@@ -30,7 +30,7 @@ function Goals() {
       }
 
     function handleDeleteGoal(id) {
-    fetch(`http://localhost:5000/goals/${id}`, {
+    fetch(`https://backend-api-zdjz.onrender.com/goals/${id}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -43,7 +43,7 @@ function Goals() {
     <div className="goals-container">
       <h2 className="goal-title">Your Goals</h2>
       <div className="goals-content">
-       <CreateGoalForm onAddGoal={(goal) => console.log("New goal:", goal)} />
+       <CreateGoalForm onAddGoal={handleAddGoal}/>
       <GoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
       </div>
     </div>

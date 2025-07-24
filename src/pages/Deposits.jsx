@@ -8,7 +8,7 @@ function Deposits() {
   const [amount, setAmount] =useState("");
 
 useEffect(() => {
-    fetch("http://localhost:5000/goals")
+    fetch("https://backend-api-zdjz.onrender.com")
       .then((res) => res.json())
       .then(setGoals)
       .catch((err) => console.error("Error fetching goals:", err));
@@ -25,7 +25,7 @@ useEffect(() => {
 console.log({ selectedGoal, updatedSavedAmount });
 
 
-    fetch(`http://localhost:5000/goals/${selectedGoal.id}`, {
+    fetch(`https://backend-api-zdjz.onrender.com/${selectedGoal.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

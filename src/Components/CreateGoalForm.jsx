@@ -21,7 +21,7 @@ console.log("CreateGoalForm is mounted");
     deadline,
     };
 
-    fetch("http://localhost:5000/goals", {
+    fetch("https://backend-api-zdjz.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newGoal),
